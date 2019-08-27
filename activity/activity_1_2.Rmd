@@ -67,20 +67,14 @@ datasaurus_dozen
 * Rows: 1846
 * Each row is a set of coordinates with a respective data.
 
-## Dino Data Frame
-```{r}
-
-dino_data <- datasaurus_dozen %>% filter(dataset =="dino")
-```
-
-## Some GGPlot
-  * Answer to question:
-
 
 ## Exercise 2
 * Plotting x vs y,
 * Correlation: -0.06447185
 ```{r}
+
+dino_data <- datasaurus_dozen %>% filter(dataset =="dino")
+
 ggplot(data=dino_data, mapping=aes(x=x,y=y)) + geom_point()
 
 cor(dino_data$x, dino_data$y)
@@ -91,4 +85,19 @@ cor(dino_data$x, dino_data$y)
 dino_data %>% summarize(r = cor(x,y))
 ```
 
+
+
+
+
+## Exercise 3
+* Plotting x vs y,
+* Correlation:  -0.0629611
+* Very similar 'weak' correlation to the dino data set
+```{r}
+star_data <- datasaurus_dozen %>% filter(dataset =="star")
+
+ggplot(data=star_data, mapping=aes(x=x,y=y)) + geom_point()
+
+cor(star_data$x, star_data$y)
+```
 
