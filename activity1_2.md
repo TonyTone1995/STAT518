@@ -9,8 +9,32 @@ print('hello world')
 
     ## [1] "hello world"
 
-Vectors
--------
+``` r
+v <-c(1,2,3,4,5)
+```
+
+``` r
+sum(v)
+```
+
+    ## [1] 15
+
+``` r
+mean(v)
+```
+
+    ## [1] 3
+
+``` r
+A <- matrix(c(1,2,3,6,5,4,12,11,10), nrow=3, ncol=3)
+
+
+col1 <-A[,1]
+
+col1
+```
+
+    ## [1] 1 2 3
 
 ``` r
 A_vector <- c(1, 2, 3)
@@ -26,14 +50,11 @@ total_vector
     ##      [,1]
     ## [1,]   32
 
-some basic plotting and filters
--------------------------------
-
 ``` r
 library(tidyverse)
 ```
 
-    ## -- Attaching packages -------------------------------------------------------------------------------------------------------------------------- tidyverse 1.2.1 --
+    ## -- Attaching packages --------------------------------------- tidyverse 1.2.1 --
 
     ## v ggplot2 3.1.0     v purrr   0.2.5
     ## v tibble  1.4.2     v dplyr   0.7.8
@@ -42,7 +63,7 @@ library(tidyverse)
 
     ## Warning: package 'ggplot2' was built under R version 3.5.2
 
-    ## -- Conflicts ----------------------------------------------------------------------------------------------------------------------------- tidyverse_conflicts() --
+    ## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
     ## x dplyr::filter() masks stats::filter()
     ## x dplyr::lag()    masks stats::lag()
 
@@ -51,7 +72,7 @@ ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy))
 ```
 
-![](activity_1_2_files/figure-markdown_github/unnamed-chunk-3-1.png)
+![](activity1_2_files/figure-markdown_github/unnamed-chunk-5-1.png)
 
 ``` r
 filter(mpg, cyl == 8)
@@ -91,50 +112,6 @@ filter(diamonds, carat > 3)
     ## 10  3.5  Ideal   H     I1       62.8    57 12587  9.65  9.59  6.03
     ## # ... with 22 more rows
 
-Loading DatasauRus
-------------------
-
 ``` r
-library(datasauRus)
+my_variable <- 10
 ```
-
-    ## Warning: package 'datasauRus' was built under R version 3.5.3
-
-``` r
-datasaurus_dozen %>% count(dataset) %>% print(13)
-```
-
-    ## # A tibble: 13 x 2
-    ##    dataset        n
-    ##    <chr>      <int>
-    ##  1 away         142
-    ##  2 bullseye     142
-    ##  3 circle       142
-    ##  4 dino         142
-    ##  5 dots         142
-    ##  6 h_lines      142
-    ##  7 high_lines   142
-    ##  8 slant_down   142
-    ##  9 slant_up     142
-    ## 10 star         142
-    ## 11 v_lines      142
-    ## 12 wide_lines   142
-    ## 13 x_shape      142
-
-Dino Data Frame
----------------
-
-``` r
-dino_data <- datasaurus_dozen %>% filter(dataset =="dino")
-```
-
-Some GGPlot
------------
-
--   Answer to question:
-
-``` r
-ggplot(data=dino_data, mapping=aes(x=x,y=y)) + geom_point()
-```
-
-![](activity_1_2_files/figure-markdown_github/unnamed-chunk-6-1.png)
