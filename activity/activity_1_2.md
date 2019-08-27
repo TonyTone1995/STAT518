@@ -121,6 +121,37 @@ datasaurus_dozen %>% count(dataset) %>% print(13)
     ## 12 wide_lines   142
     ## 13 x_shape      142
 
+``` r
+#?datasaurus_dozen
+```
+
+``` r
+datasaurus_dozen
+```
+
+    ## # A tibble: 1,846 x 3
+    ##    dataset     x     y
+    ##    <chr>   <dbl> <dbl>
+    ##  1 dino     55.4  97.2
+    ##  2 dino     51.5  96.0
+    ##  3 dino     46.2  94.5
+    ##  4 dino     42.8  91.4
+    ##  5 dino     40.8  88.3
+    ##  6 dino     38.7  84.9
+    ##  7 dino     35.6  79.9
+    ##  8 dino     33.1  77.6
+    ##  9 dino     29.0  74.5
+    ## 10 dino     26.2  71.4
+    ## # ... with 1,836 more rows
+
+Exercise 1 Response:
+--------------------
+
+-   Description: A dataset demonstrating the utility of visualization. These 12 datasets are equal in standard measures: mean, standard deviation, and Pearson's correlation.
+-   Columns: 3
+-   Rows: 1846
+-   Each row is a set of coordinates with a respective data.
+
 Dino Data Frame
 ---------------
 
@@ -137,4 +168,4 @@ Some GGPlot
 ggplot(data=dino_data, mapping=aes(x=x,y=y)) + geom_point()
 ```
 
-![](activity_1_2_files/figure-markdown_github/unnamed-chunk-6-1.png)
+![](activity_1_2_files/figure-markdown_github/unnamed-chunk-7-1.png)

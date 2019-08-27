@@ -44,13 +44,29 @@ filter(diamonds, carat > 3)
 ```
 
 ## Loading DatasauRus
+
+
 ```{r}
 library(datasauRus)
 
 datasaurus_dozen %>% count(dataset) %>% print(13)
 
+#?datasaurus_dozen
+
 
 ```
+
+
+```{r}
+
+datasaurus_dozen
+```
+## Exercise 1 Response:
+* Description: A dataset demonstrating the utility of visualization. These 12 datasets are equal in standard measures: mean, standard deviation, and Pearson's correlation. 
+* Columns: 3
+* Rows: 1846
+* Each row is a set of coordinates with a respective data.
+
 ## Dino Data Frame
 ```{r}
 
