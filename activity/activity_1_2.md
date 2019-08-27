@@ -164,8 +164,29 @@ Some GGPlot
 
 -   Answer to question:
 
+Exercise 2
+----------
+
+-   Plotting x vs y,
+-   Correlation: -0.06447185
+
 ``` r
 ggplot(data=dino_data, mapping=aes(x=x,y=y)) + geom_point()
 ```
 
 ![](activity_1_2_files/figure-markdown_github/unnamed-chunk-7-1.png)
+
+``` r
+cor(dino_data$x, dino_data$y)
+```
+
+    ## [1] -0.06447185
+
+``` r
+dino_data %>% summarize(r = cor(x,y))
+```
+
+    ## # A tibble: 1 x 1
+    ##         r
+    ##     <dbl>
+    ## 1 -0.0645

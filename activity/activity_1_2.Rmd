@@ -77,8 +77,18 @@ dino_data <- datasaurus_dozen %>% filter(dataset =="dino")
   * Answer to question:
 
 
+## Exercise 2
+* Plotting x vs y,
+* Correlation: -0.06447185
 ```{r}
 ggplot(data=dino_data, mapping=aes(x=x,y=y)) + geom_point()
 
+cor(dino_data$x, dino_data$y)
 ```
+
+
+```{r}
+dino_data %>% summarize(r = cor(x,y))
+```
+
 
