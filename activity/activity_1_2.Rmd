@@ -92,7 +92,7 @@ dino_data %>% summarize(r = cor(x,y))
 ## Exercise 3
 * Plotting x vs y,
 * Correlation:  -0.0629611
-* Very similar 'weak' correlation to the dino data set
+* Response: Very similar 'weak' correlation to the dino data set
 ```{r}
 star_data <- datasaurus_dozen %>% filter(dataset =="star")
 
