@@ -1,33 +1,10 @@
-demo\_R
+Activity 1.2
 ================
 Antonio Ruiz
 June 11, 2019
 
-``` r
-print('hello world')
-```
-
-    ## [1] "hello world"
-
-Vectors
--------
-
-``` r
-A_vector <- c(1, 2, 3)
-B_vector <- c(4, 5, 6)
-
-# Take the sum of A_vector and B_vector
-total_vector <- A_vector %*% B_vector
-  
-# Print out total_vector
-total_vector
-```
-
-    ##      [,1]
-    ## [1,]   32
-
-some basic plotting and filters
--------------------------------
+The Tidyverse Libray
+--------------------
 
 ``` r
 library(tidyverse)
@@ -45,51 +22,6 @@ library(tidyverse)
     ## -- Conflicts ----------------------------------------------------------------------------------------------------------------------------- tidyverse_conflicts() --
     ## x dplyr::filter() masks stats::filter()
     ## x dplyr::lag()    masks stats::lag()
-
-``` r
-ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy))
-```
-
-![](activity_1_2_files/figure-markdown_github/unnamed-chunk-3-1.png)
-
-``` r
-filter(mpg, cyl == 8)
-```
-
-    ## # A tibble: 70 x 11
-    ##    manufacturer model displ  year   cyl trans drv     cty   hwy fl    class
-    ##    <chr>        <chr> <dbl> <int> <int> <chr> <chr> <int> <int> <chr> <chr>
-    ##  1 audi         a6 q~   4.2  2008     8 auto~ 4        16    23 p     mids~
-    ##  2 chevrolet    c150~   5.3  2008     8 auto~ r        14    20 r     suv  
-    ##  3 chevrolet    c150~   5.3  2008     8 auto~ r        11    15 e     suv  
-    ##  4 chevrolet    c150~   5.3  2008     8 auto~ r        14    20 r     suv  
-    ##  5 chevrolet    c150~   5.7  1999     8 auto~ r        13    17 r     suv  
-    ##  6 chevrolet    c150~   6    2008     8 auto~ r        12    17 r     suv  
-    ##  7 chevrolet    corv~   5.7  1999     8 manu~ r        16    26 p     2sea~
-    ##  8 chevrolet    corv~   5.7  1999     8 auto~ r        15    23 p     2sea~
-    ##  9 chevrolet    corv~   6.2  2008     8 manu~ r        16    26 p     2sea~
-    ## 10 chevrolet    corv~   6.2  2008     8 auto~ r        15    25 p     2sea~
-    ## # ... with 60 more rows
-
-``` r
-filter(diamonds, carat > 3)
-```
-
-    ## # A tibble: 32 x 10
-    ##    carat cut     color clarity depth table price     x     y     z
-    ##    <dbl> <ord>   <ord> <ord>   <dbl> <dbl> <int> <dbl> <dbl> <dbl>
-    ##  1  3.01 Premium I     I1       62.7    58  8040  9.1   8.97  5.67
-    ##  2  3.11 Fair    J     I1       65.9    57  9823  9.15  9.02  5.98
-    ##  3  3.01 Premium F     I1       62.2    56  9925  9.24  9.13  5.73
-    ##  4  3.05 Premium E     I1       60.9    58 10453  9.26  9.25  5.66
-    ##  5  3.02 Fair    I     I1       65.2    56 10577  9.11  9.02  5.91
-    ##  6  3.01 Fair    H     I1       56.1    62 10761  9.54  9.38  5.31
-    ##  7  3.65 Fair    H     I1       67.1    53 11668  9.53  9.48  6.38
-    ##  8  3.24 Premium H     I1       62.1    58 12300  9.44  9.4   5.85
-    ##  9  3.22 Ideal   I     I1       62.6    55 12545  9.49  9.42  5.92
-    ## 10  3.5  Ideal   H     I1       62.8    57 12587  9.65  9.59  6.03
-    ## # ... with 22 more rows
 
 Loading DatasauRus
 ------------------
@@ -121,9 +53,8 @@ datasaurus_dozen %>% count(dataset) %>% print(13)
     ## 12 wide_lines   142
     ## 13 x_shape      142
 
-``` r
-#?datasaurus_dozen
-```
+Viewing the dataset
+-------------------
 
 ``` r
 datasaurus_dozen
@@ -150,31 +81,21 @@ Exercise 1 Response:
 -   Description: A dataset demonstrating the utility of visualization. These 12 datasets are equal in standard measures: mean, standard deviation, and Pearson's correlation.
 -   Columns: 3
 -   Rows: 1846
--   Each row is a set of coordinates with a respective data.
-
-Dino Data Frame
----------------
-
-``` r
-dino_data <- datasaurus_dozen %>% filter(dataset =="dino")
-```
-
-Some GGPlot
------------
-
--   Answer to question:
+-   Each row is a set of coordinates with the respective data set that it belongs to.
 
 Exercise 2
 ----------
 
--   Plotting x vs y,
+-   Plotting x vs y for the Dino Dataset
 -   Correlation: -0.06447185
 
 ``` r
+dino_data <- datasaurus_dozen %>% filter(dataset =="dino")
+
 ggplot(data=dino_data, mapping=aes(x=x,y=y)) + geom_point()
 ```
 
-![](activity_1_2_files/figure-markdown_github/unnamed-chunk-7-1.png)
+![](activity_1_2_files/figure-markdown_github/unnamed-chunk-4-1.png)
 
 ``` r
 cor(dino_data$x, dino_data$y)
@@ -190,3 +111,83 @@ dino_data %>% summarize(r = cor(x,y))
     ##         r
     ##     <dbl>
     ## 1 -0.0645
+
+Exercise 3
+----------
+
+-   Plotting x vs y for the Star dataset
+-   Correlation: -0.0629611
+-   Observation: Very similar , slightly 'weaker' correlation compared to the dino data set
+
+``` r
+star_data <- datasaurus_dozen %>% filter(dataset =="star")
+
+ggplot(data=star_data, mapping=aes(x=x,y=y)) + geom_point()
+```
+
+![](activity_1_2_files/figure-markdown_github/unnamed-chunk-6-1.png)
+
+``` r
+cor(star_data$x, star_data$y)
+```
+
+    ## [1] -0.0629611
+
+Exercise 4
+----------
+
+-   Plotting x vs y for Circle Dataset
+-   Correlation: -0.06834336
+-   Observation: Slightly higher negative correlation compared to the Dino Dataset
+
+``` r
+star_data <- datasaurus_dozen %>% filter(dataset =="circle")
+
+ggplot(data=star_data, mapping=aes(x=x,y=y)) + geom_point()
+```
+
+![](activity_1_2_files/figure-markdown_github/unnamed-chunk-7-1.png)
+
+``` r
+cor(star_data$x, star_data$y)
+```
+
+    ## [1] -0.06834336
+
+Exercise 5 : Exploring Faceting and Group By
+--------------------------------------------
+
+-   facet\_wrap wraps a 1d sequence of panels into 2d. This is generally a better use of screen space than facet\_grid() because most displays are roughly rectangular.
+
+``` r
+ggplot(data=datasaurus_dozen, aes(x=x, y=y, color=dataset)) +
+    geom_point() +
+    facet_wrap(~dataset, ncol = 3) + 
+    theme(legend.position = "none" )
+```
+
+![](activity_1_2_files/figure-markdown_github/unnamed-chunk-8-1.png)
+
+Using GroupBy to generate coefficients
+--------------------------------------
+
+``` r
+datasaurus_dozen %>% group_by(dataset) %>% summarise(r = cor(x,y))
+```
+
+    ## # A tibble: 13 x 2
+    ##    dataset          r
+    ##    <chr>        <dbl>
+    ##  1 away       -0.0641
+    ##  2 bullseye   -0.0686
+    ##  3 circle     -0.0683
+    ##  4 dino       -0.0645
+    ##  5 dots       -0.0603
+    ##  6 h_lines    -0.0617
+    ##  7 high_lines -0.0685
+    ##  8 slant_down -0.0690
+    ##  9 slant_up   -0.0686
+    ## 10 star       -0.0630
+    ## 11 v_lines    -0.0694
+    ## 12 wide_lines -0.0666
+    ## 13 x_shape    -0.0656
