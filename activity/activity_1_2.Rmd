@@ -6,31 +6,6 @@ output: rmarkdown::github_document
 ---
 
 
-```{r}
-
-print('hello world')
-
-```
-
-
-
-
-
-## Vectors
-```{r}
-
-A_vector <- c(1, 2, 3)
-B_vector <- c(4, 5, 6)
-
-# Take the sum of A_vector and B_vector
-total_vector <- A_vector %*% B_vector
-  
-# Print out total_vector
-total_vector
-
-
-```
-
 ## some basic plotting and filters
 ```{r}
 library(tidyverse)
@@ -56,10 +31,12 @@ datasaurus_dozen %>% count(dataset) %>% print(13)
 
 ```
 
-
+## Exploring the dataset
 ```{r}
 
 datasaurus_dozen
+
+table(datasaurus_dozen$dataset)
 ```
 ## Exercise 1 Response:
 * Description: A dataset demonstrating the utility of visualization. These 12 datasets are equal in standard measures: mean, standard deviation, and Pearson's correlation. 
@@ -100,4 +77,21 @@ ggplot(data=star_data, mapping=aes(x=x,y=y)) + geom_point()
 
 cor(star_data$x, star_data$y)
 ```
+
+
+
+
+## Exercise 4
+* Plotting x vs y for Circle Dataset
+* Correlation: -0.06834336
+* Response: Very similar 'weak' correlation to the dino data set, slightly higher negative correlation
+```{r}
+star_data <- datasaurus_dozen %>% filter(dataset =="circle")
+
+ggplot(data=star_data, mapping=aes(x=x,y=y)) + geom_point()
+
+cor(star_data$x, star_data$y)
+```
+
+
 
